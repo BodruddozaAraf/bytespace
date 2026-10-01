@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Raw Figma reference output (not app code).
+    "docs/**",
   ]),
 ]);
 
