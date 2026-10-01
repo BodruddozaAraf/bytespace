@@ -35,14 +35,14 @@ const defaults = {
   students: { avatars: STUDENT_AVATARS, extra: "26+" },
 } satisfies Omit<Course, "id" | "title" | "thumbnail">;
 
-// TODO(landing): thumbnails for courses without a downloaded image currently reuse the two from the
-// Login frame; point them at public/images/landing/* once the course grid (33:683) is fetched.
+// Thumbnails from the landing course grid (Figma 33:683). "Build Digital Asset" and "the Power of
+// Big Data" are byte-identical to the ones already in /images/shared, so those are reused.
 export const courses: Course[] = [
   {
     ...defaults,
     id: "learn-figma-from-basic",
     title: "Learn Figma from Basic",
-    thumbnail: "/images/shared/course-build-digital-asset.jpg",
+    thumbnail: "/images/landing/course-learn-figma.jpg",
   },
   {
     ...defaults,
@@ -60,19 +60,19 @@ export const courses: Course[] = [
     ...defaults,
     id: "balancing-productivity-and-self-care",
     title: "Balancing Productivity and Self-Care",
-    thumbnail: "/images/shared/course-big-data.jpg",
+    thumbnail: "/images/landing/course-productivity.jpg",
   },
   {
     ...defaults,
     id: "mastering-money-management",
     title: "Mastering Money Management",
-    thumbnail: "/images/shared/course-big-data.jpg",
+    thumbnail: "/images/landing/course-money-management.jpg",
   },
   {
     ...defaults,
     id: "from-idea-to-startup-success",
     title: "From Idea to Startup Success",
-    thumbnail: "/images/shared/course-build-digital-asset.jpg",
+    thumbnail: "/images/landing/course-startup-success.jpg",
   },
 ];
 
