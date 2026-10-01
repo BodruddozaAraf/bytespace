@@ -4,7 +4,7 @@ A pixel-faithful build of the **ByteSpace** online-course website from its Figma
 the full **landing page** plus the **Sign In** and **Create an Account** pages.
 It is UI only: forms validate client-side but don't submit anywhere.
 
-**Live:** _<vercel URL — added after deploy>_
+**Live:** https://bytespace-brown-tau.vercel.app · [/login](https://bytespace-brown-tau.vercel.app/login) · [/register](https://bytespace-brown-tau.vercel.app/register)
 
 ## Stack
 
