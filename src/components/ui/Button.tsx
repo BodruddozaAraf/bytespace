@@ -19,9 +19,10 @@ const variants: Record<ButtonVariant, string> = {
 };
 
 const sizes: Record<ButtonSize, string> = {
-  sm: "px-4 py-2 text-sm",
-  md: "px-6 py-3 text-lg", // Figma: 24px / 12px padding, Label L 18px
-  lg: "px-8 py-4 text-lg",
+  sm: "px-4 py-2 text-sm leading-[1.2]",
+  // Line-height is repeated per size: twMerge drops the base leading when a text-* size follows.
+  md: "px-6 py-3 text-lg leading-[1.2]", // Figma: 24px / 12px padding, Label L 18px → ~46px tall
+  lg: "px-8 py-4 text-lg leading-[1.2]",
 };
 
 export type ButtonStyleProps = { variant?: ButtonVariant; size?: ButtonSize };

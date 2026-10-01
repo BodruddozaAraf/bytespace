@@ -9,11 +9,13 @@ type AvatarStackProps = {
   size?: number;
   /** Overlap in px. Figma: 8 for 32px avatars, 16 for 43px. */
   overlap?: number;
+  /** Colour of the "+N" bubble: ink (auth showcase) or lime (landing cards). */
+  extraTone?: "ink" | "lime";
   className?: string;
 };
 
 /** Overlapping circular avatars with an optional "+N" bubble. */
-export function AvatarStack({ avatars, extra, size = 32, overlap = 8, className }: AvatarStackProps) {
+export function AvatarStack({ avatars, extra, size = 32, overlap = 8, extraTone = "ink", className }: AvatarStackProps) {
   const item = { width: size, height: size };
   return (
     <div className={cn("flex items-center", className)}>
@@ -31,7 +33,10 @@ export function AvatarStack({ avatars, extra, size = 32, overlap = 8, className 
       {extra && (
         <span
           style={{ ...item, marginLeft: avatars.length ? -overlap : 0 }}
-          className="relative grid shrink-0 place-items-center rounded-full bg-ink text-xs leading-5 font-medium text-surface"
+          className={cn(
+            "relative grid shrink-0 place-items-center rounded-full text-xs leading-5 font-medium",
+            extraTone === "lime" ? "bg-accent text-ink" : "bg-ink text-surface",
+          )}
         >
           {extra}
         </span>

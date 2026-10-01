@@ -32,7 +32,7 @@ export function AuthShell({ heading, description, children }: AuthShellProps) {
 
       <section
         aria-label={heading}
-        className="flex w-full flex-col rounded-card bg-surface px-5 py-10 sm:px-[63px] sm:py-[61px] lg:min-h-[784px] lg:max-w-[579px]"
+        className="flex w-full flex-col rounded-card bg-surface px-5 py-10 sm:px-[63px] sm:pt-[61px] sm:pb-10 lg:min-h-[784px] lg:max-w-[579px]"
       >
         {children}
       </section>

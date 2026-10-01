@@ -43,7 +43,7 @@ export function HappyStudentsCard({
         <p className="text-base leading-6 font-medium">Happy Students</p>
         <Rating value={4.5} count={240} size="sm" />
       </div>
-      <AvatarStack avatars={avatars} extra="2K+" size={43} overlap={16} />
+      <AvatarStack avatars={avatars} extra="2K+" size={43} overlap={16} extraTone={tone === "white" ? "lime" : "ink"} />
     </StatCard>
   );
 }

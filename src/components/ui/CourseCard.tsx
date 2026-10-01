@@ -12,6 +12,11 @@ type CourseCardProps = {
   preload?: boolean;
   /** `sizes` hint for the thumbnail. Defaults to a 3-column grid. */
   sizes?: string;
+  /**
+   * "catalog" (landing grid, Figma 33:683): lime "+N" bubble, grey star.
+   * "showcase" (auth pages, Figma 49:251): ink "+N" bubble, lime star.
+   */
+  variant?: "catalog" | "showcase";
 };
 
 /**
@@ -23,7 +28,9 @@ export function CourseCard({
   className,
   preload,
   sizes = "(min-width: 1024px) 373px, (min-width: 640px) 50vw, 100vw",
+  variant = "catalog",
 }: CourseCardProps) {
+  const showcase = variant === "showcase";
   const { title, creator, level, rating, price, priceUnit, thumbnail, stats, students } = course;
 
   return (
@@ -58,7 +65,7 @@ export function CourseCard({
               by <span className="text-primary">{creator}</span>
             </p>
           </div>
-          <Rating value={rating} className="shrink-0" />
+          <Rating value={rating} tone={showcase ? "lime" : "muted"} className="shrink-0" />
         </div>
 
         <div className="flex items-center gap-3">
@@ -66,7 +73,7 @@ export function CourseCard({
             <Image src="/images/shared/icon-level.svg" alt="" width={20} height={20} className="size-5" />
             {level}
           </Pill>
-          <AvatarStack avatars={students.avatars} extra={students.extra} />
+          <AvatarStack avatars={students.avatars} extra={students.extra} extraTone={showcase ? "ink" : "lime"} />
         </div>
 
         <p className="flex items-end gap-0.5">

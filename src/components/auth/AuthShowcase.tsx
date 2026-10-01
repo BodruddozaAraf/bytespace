@@ -18,11 +18,13 @@ export function AuthShowcase({ className }: { className?: string }) {
       <CourseCard
         course={getCourse("build-digital-asset")}
         sizes="341px"
+        variant="showcase"
         className="absolute top-[89px] left-[25px] h-[384px] w-[373px]"
       />
       <CourseCard
         course={getCourse("the-power-of-big-data")}
         sizes="341px"
+        variant="showcase"
         className="absolute top-0 left-[136px] h-[384px] w-[373px]"
       />
       <HappyStudentsCard className="absolute top-[435px] left-[251px] shadow-none" />
