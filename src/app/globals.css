@@ -1,26 +1,84 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * ByteSpace design tokens — extracted from Figma (Login 49:195). See docs/design-tokens.md.
+ * Components must use these tokens (bg-primary, text-ink, rounded-card, shadow-card, …),
+ * never raw hex values.
+ */
+@theme {
+  /* Brand */
+  --color-primary: #003be2; /* Persian Blue/800 — hero, CTA band, links */
+  --color-primary-hover: #0031bd;
+  --color-accent: #d4fb20; /* Electric Lime/400 — buttons, active pills, highlights */
+  --color-accent-hover: #c2e80f;
+  --color-violet: #300b6a; /* Electric Violet/950 */
+
+  /* Text (Shuttle Gray / Black ramps) */
+  --color-ink: #242528; /* Shuttle Gray/950 — headings, primary text */
+  --color-ink-strong: #000000; /* Black/950 — course card titles */
+  --color-body: #4f4f4f; /* Black/700 — card meta text */
+  --color-body-alt: #4b4c53; /* Shuttle Gray/700 — level chip text */
+  --color-muted: #82868e; /* Shuttle Gray/400 — placeholders, secondary */
+  --color-subtle: #888888; /* Black/400 — "or", "New user?" */
+
+  /* Surfaces & borders */
+  --color-surface: #ffffff;
+  --color-surface-muted: #f5f5f6; /* Shuttle Gray/50 — chips, light text on blue */
+  --color-surface-alt: #fafafa; /* soft section background (growth / testimonials) */
+  --color-line: #e5e6e8; /* Shuttle Gray/100 — input border */
+  --color-line-strong: #ced0d3; /* Shuttle Gray/200 — card border */
+  --color-line-soft: #d1d1d1; /* Black/200 — divider, social buttons */
+  --color-thumb: #443131; /* thumbnail placeholder fill */
+  --color-glass: rgb(246 246 246 / 0.6); /* frosted chip on thumbnails */
+
+  /* Typography */
+  --font-heading: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-satoshi), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-body);
+
+  /* Radii */
+  --radius-chip: 24px; /* pills, buttons, chips (fully rounded at their heights) */
+  --radius-card: 24px; /* course cards, form card */
+  --radius-panel: 16px; /* floating stat cards */
+  --radius-field: 12px; /* inputs, thumbnails */
+
+  /* Shadows (design uses borders more than shadows; these are for floating cards) */
+  --shadow-card: 0 12px 32px -12px rgb(36 37 40 / 0.18);
+  --shadow-float: 0 24px 48px -16px rgb(0 59 226 / 0.25);
+
+  /* Layout */
+  --container-content: 1200px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility container-content {
+  width: 100%;
+  max-width: var(--container-content);
+  margin-inline: auto;
+}
+
+/* 120px white grid overlay at 12% opacity, as on the blue Login/Hero backgrounds (Figma "Group 4"). */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.12) 2px, transparent 2px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.12) 2px, transparent 2px);
+  background-size: 120px 120px;
+  background-position: 0 0;
 }
